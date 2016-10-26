@@ -3,6 +3,7 @@ package com.inmobi.hive.test;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hive.service.cli.HiveSQLException;
 
@@ -27,11 +28,15 @@ import org.apache.hive.service.cli.HiveSQLException;
 public class HiveTestSuite {
     
     private HiveTestCluster cluster;
-    
+
     public void createTestCluster() {
+        createTestCluster(new Configuration());
+    }
+
+    public void createTestCluster(Configuration conf) {
         cluster = new HiveTestCluster();
         try {
-            cluster.start();
+            cluster.start(conf);
         } catch (Exception e) {
             throw new RuntimeException("Unable to start test cluster", e);
         }

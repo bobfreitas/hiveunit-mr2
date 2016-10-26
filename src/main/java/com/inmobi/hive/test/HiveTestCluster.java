@@ -34,8 +34,11 @@ public class HiveTestCluster {
     private HiveConf hiveConf;
 
     public void start() throws Exception {
-        Configuration conf = new Configuration();
-        hiveConf = new HiveConf(conf, 
+        start(new Configuration());
+    }
+
+    public void start(Configuration conf) throws Exception {
+        hiveConf = new HiveConf(conf,
                 org.apache.hadoop.hive.ql.exec.CopyTask.class);
         miniHS2 = new MiniHS2(hiveConf, true);
         confOverlay = new HashMap<String, String>();

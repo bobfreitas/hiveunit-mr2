@@ -8,8 +8,16 @@
 	<name>hiveunit-mr2</name>
 	<description>Hive Unit Testing for MR2</description>
 
+	<repositories>
+		<repository>
+			<id>cloudera-repo</id>
+			<name>Cloudera repository</name>
+			<url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+		</repository>
+	</repositories>
+
 	<properties>
-		<hive.version>1.1.0</hive.version>
+		<hive.version>1.1.0-cdh5.8.2</hive.version>
 		<hadoop.version>2.6.0</hadoop.version>
 	</properties>
 
